@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :art_pieces, only: [:index, :show]
 
   resources :users do
-    resources :art_pieces, only: %i[new create edit destroy]
-    resources :bookings, only: %i[new create edit destroy]
+    resources :art_pieces, only: %i[new create edit update destroy]
+    resources :bookings, only: %i[new create edit update destroy]
   end
 
 end
