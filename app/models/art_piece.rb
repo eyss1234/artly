@@ -1,5 +1,5 @@
 class ArtPiece < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   GENRES = ["abstract", "architecture", "landscape", "seascape", "portrait", "still life", "animals"]
 
