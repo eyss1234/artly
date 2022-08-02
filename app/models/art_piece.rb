@@ -1,5 +1,6 @@
 class ArtPiece < ApplicationRecord
   belongs_to :user, dependent: :destroy
+  has_many :bookings, :dependent => :restrict_with_error
 
   GENRES = ["abstract", "architecture", "landscape", "seascape", "portrait", "still life", "animals"]
 
