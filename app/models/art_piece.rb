@@ -1,5 +1,5 @@
 class ArtPiece < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many :bookings, :dependent => :restrict_with_error
   has_many_attached :photos
   
