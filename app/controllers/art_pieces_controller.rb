@@ -1,5 +1,5 @@
 class ArtPiecesController < ApplicationController
-  before_action :set_art_piece, only: %i[edit update]
+#   before_action :set_art_piece, only: %i[edit update]
 
   def new
     @list = Art_piece.new()
@@ -14,27 +14,27 @@ class ArtPiecesController < ApplicationController
     end
   end
 
-  def edit
+#   def edit
     
-  end
+#   end
 
-  def update
-    @art_piece.update(art_piece_params)
-    redirect_to art_piece_path(@art_piece)
-  end
+#   def update
+#     @art_piece.update(art_piece_params)
+#     redirect_to art_piece_path(@art_piece)
+#   end
 
-  def destroy
-    redirect_to art_pieces_path, status: :see_other
-  end
+#   def destroy
+#     redirect_to art_pieces_path, status: :see_other
+#   end
 
-  private
+#   private
 
-  def art_piece_params
-    params.require(:art_piece).permit(:name, :genre,)
-  end
+#   def art_piece_params
+#     params.require(:art_piece).permit(:name, :genre,)
+#   end
 
-  def set_art_piece
-    @list = Art_piece.find(params[:id])
-  end
+#   def set_art_piece
+#     @list = Art_piece.find(params[:id])
+#   end
 
 end
