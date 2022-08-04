@@ -45,6 +45,6 @@ end
     end_date:Faker::Date.in_date_period
   }
 )
-
+end
 
 puts "Seeding done."
