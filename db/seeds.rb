@@ -5,3 +5,49 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "faker"
+
+puts "Seeding..."
+
+address = ["10 chesham road, london KT1 3AQ", "52 Sinclair Road, london W14 0NH", "63 Ashurst road, london EN4 9LH"]
+genre = ["abstract", "architecture", "landscape", "seascape", "portrait", "still life", "animals"]
+
+10.times do
+  user = User.create(
+    { email: Faker::Internet.email,
+      address: address.sample,
+      password: "123456"
+    }
+    )
+  user.save
+end
+
+10.times do
+  art = ArtPiece.new(
+    {
+      name: Faker::GreekPhilosophers.name,
+      user_id: rand(1..10),
+      description: Faker::GreekPhilosophers.quote,
+      genre: genre.sample,
+      cost_per_day: Faker::Commerce.price
+    }
+  )
+
+  photo = "#{genre.sample}.jpg"
+  art.photos.attach(io: File.open("db/photos/#{photo}"), filename: photo)
+  art.save
+end
+
+# 10.times do
+#   start_date = Faker::Date.between(from: 100.days.ago, to: Date.today)
+#   end_date = Faker::Date.between(from: Date.today, to: '2022-12-31')
+#   booking = Booking.create(
+#     {
+#       start_date: start_date,
+#       end_date: end_date
+#       user_id: User.all.
+#     }
+#   )
+# end
+
+puts "Seeding done."
