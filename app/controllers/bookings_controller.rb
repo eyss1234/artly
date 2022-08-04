@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :new
   before_action :set_booking, only: %i[edit update destroy]
 
   def new
