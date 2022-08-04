@@ -1,11 +1,6 @@
-<div class="art-piece-container">
+<div class="container art-piece-cards-container">
   <% @art_pieces.each do |art_piece| %>
-    <%# <div><%= cl_image_tag art_piece.photos.key, class: "card-img" %></div> %>
-    <div class="art-piece-details-container">
-      <h2><%= art_piece.name %></h2>
-      <p><%= art_piece.genre %></p>
-      <p><%= link_to "Show this art piece", art_piece %></p>
-    </div>
+    <%= render "shared/art_piece_card_index", art_piece: art_piece %> 
   <% end %>
 </div>
 

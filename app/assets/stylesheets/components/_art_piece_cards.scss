@@ -1,0 +1,22 @@
+.art-piece-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  color: $dark-blue;
+} 
+
+
+
+.art-piece-card-container {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border: 1px solid $dark-blue;
+}
+
+.card-img {
+  height: 300px;
+}
