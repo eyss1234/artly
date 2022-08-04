@@ -23,7 +23,7 @@ genre = ["abstract", "architecture", "landscape", "seascape", "portrait", "still
 end
 
 10.times do
-  art = ArtPiece.create(
+  art = ArtPiece.new(
    {
      name: Faker::GreekPhilosophers.name,
      user_id: rand(1..10),
@@ -32,6 +32,9 @@ end
      cost_per_day: Faker::Commerce.price
    }
 )
+
+photo = "#{genre.sample}.jpg"
+art.photos.attach(io: File.open("db/photos/#{photo}"), filename: photo)
 art.save
 end
 
