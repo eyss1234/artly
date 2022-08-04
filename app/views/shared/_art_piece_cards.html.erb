@@ -1,7 +1,8 @@
-<div class="art-piece-details-container">
+<div class="art-piece-card-container">
   <div><%= cl_image_tag art_piece.photos.first.key, class: "card-img" %></div>
-  <p><%= link_to "Show this art piece", art_piece_path(art_piece) %></p>
-  <h3><%= art_piece.name %></h3>
-  <p><%= art_piece.genre %></p>
-  <p>£<%= art_piece.cost_per_day %>/day</p>
+  <div class="art-piece-card-details">
+    <h3><%= link_to art_piece.name, art_piece_path(art_piece) %></p></h3>
+    <span><strong>£<%= art_piece.cost_per_day %>/day</strong></span>   
+  </div>
+  <p><%= art_piece.description %></p>
 </div>
