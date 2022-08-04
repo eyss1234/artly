@@ -5,18 +5,29 @@
   color: $dark-blue;
 } 
 
-
-
 .art-piece-card-container {
   width: 400px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  border: 1px solid $dark-blue;
+  font-size: 18px;
+  border: 0.5px solid $light-grey;
+  background-color: rgba(255,255,255,.3);
+   a {
+    text-decoration: none;
+   }
+   p {
+    padding: 8px;
+    margin: 0px;
+   }
 }
 
 .card-img {
-  height: 300px;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.art-piece-card-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  height: 40px;
 }
