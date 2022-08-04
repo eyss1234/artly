@@ -4,7 +4,7 @@ class ArtPiecesController < ApplicationController
   # add edit update and destroy to before_action after actions are created
 
   def index
-    @art_pieces = policy_scoped(ArtPiece)
+    @art_pieces = policy_scope(ArtPiece)
   end
 
   def show
