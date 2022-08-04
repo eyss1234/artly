@@ -6,12 +6,13 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
-  #anyone can make a booking unless its their own art
+  # anyone can make a booking unless its their own art
   def create?
-    current_user != record.user
+    not_own_art = current_user != record.art_piece.user
+    current_user == record.user && not_own_art
   end
 
-  #only booking user can destroy or edit a booking
+  # only booking user can destroy or edit a booking
   def destroy?
     update?
   end
