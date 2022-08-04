@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :art_pieces, dependent: :destroy
 
   validates_presence_of :email, :address
-  
+
 end
