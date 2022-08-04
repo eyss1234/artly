@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :art_pieces, dependent: :destroy
 
-  validates_presence_of :email, :address
-  
+  validates_presence_of :email
+
 end
