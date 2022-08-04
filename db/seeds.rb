@@ -24,27 +24,30 @@ end
 
 10.times do
   art = ArtPiece.new(
-   {
-     name: Faker::GreekPhilosophers.name,
-     user_id: rand(1..10),
-     description: Faker::GreekPhilosophers.quote,
-     genre: genre.sample,
-     cost_per_day: Faker::Commerce.price
-   }
-)
+    {
+      name: Faker::GreekPhilosophers.name,
+      user_id: rand(1..10),
+      description: Faker::GreekPhilosophers.quote,
+      genre: genre.sample,
+      cost_per_day: Faker::Commerce.price
+    }
+  )
 
-photo = "#{genre.sample}.jpg"
-art.photos.attach(io: File.open("db/photos/#{photo}"), filename: photo)
-art.save
+  photo = "#{genre.sample}.jpg"
+  art.photos.attach(io: File.open("db/photos/#{photo}"), filename: photo)
+  art.save
 end
 
-10.times do
- booking = Booking.create(
-  {
-    start_date: Faker::Date.in_date_period,
-    end_date:Faker::Date.in_date_period
-  }
-)
-end
+# 10.times do
+#   start_date = Faker::Date.between(from: 100.days.ago, to: Date.today)
+#   end_date = Faker::Date.between(from: Date.today, to: '2022-12-31')
+#   booking = Booking.create(
+#     {
+#       start_date: start_date,
+#       end_date: end_date
+#       user_id: User.all.
+#     }
+#   )
+# end
 
 puts "Seeding done."
