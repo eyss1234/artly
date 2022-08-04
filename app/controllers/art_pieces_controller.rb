@@ -1,4 +1,5 @@
 class ArtPiecesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_art_piece, only: %i[ show ]
   # add edit update and destroy to before_action after actions are created
 
@@ -33,6 +34,7 @@ class ArtPiecesController < ApplicationController
 #       redirect_to art_piece_path(@art_piece)
 #     else
 #       render :edit
+#     end
 #   end
 
 #   def destroy
