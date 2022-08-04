@@ -42,7 +42,6 @@ end
  booking = Booking.create(
   {
     start_date: Faker::Date.in_date_period,
-    end_date:Faker::Date.in_date_period
   }
 )
 booking.save
