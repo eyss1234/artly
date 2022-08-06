@@ -22,10 +22,11 @@ class ArtPiecesController < ApplicationController
     @art_piece = ArtPiece.new(art_piece_params)
     @art_piece.user = current_user
     authorize @art_piece
+
     if @art_piece.save
       redirect_to art_piece_path(@art_piece), alert: 'Art piece submitted sucessfully'
     else
-      render :index, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -48,7 +49,7 @@ class ArtPiecesController < ApplicationController
   private
 
   def art_piece_params
-    params.require(:art_piece).permit(:name, :genre, :photos)
+    params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day, photos: [])
   end
 
   def set_art_piece
