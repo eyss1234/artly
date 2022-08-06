@@ -1,12 +1,31 @@
-.navbar-lewagon {
+.navbar-artly {
   justify-content: space-between;
   background: white;
+  height: 10vh;
+  margin-top:0;
+  padding:0;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-artly .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-artly .navbar-brand img {
+  height: 10vh;
+}
+
+.navbar-artly a {
+  margin: 0;
+  padding: 0;
+}
+
+a.menu-item {
+  color: $secondary;
+}
+a.menu-item:hover {
+  color: $primary;
+}
+
+.menu {
+  padding: 8px;
 }
