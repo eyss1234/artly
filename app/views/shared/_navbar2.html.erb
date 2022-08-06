@@ -1,23 +1,23 @@
-<div class="navbar navbar-lewagon navbar-light justify-content-between mb-3">
+<div class="navbar navbar-artly navbar-light justify-content-between mb-3">
     <%= link_to "", class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
-    <div class="menu d-flex text-secondary">
+    <div class="menu d-flex text-secondary px-3">
       <% if user_signed_in? %>
         <%# changed to boostrap version %>
 
-        <%= link_to(new_user_art_piece_path(current_user), class: "text-secondary text-decoration-none mx-2") do %>
+        <%= link_to(new_user_art_piece_path(current_user), class: "text-decoration-none mx-2 menu-item") do %>
           <i class="fas fa-plus"></i> Art For Rent
         <% end %>
-        <%= link_to(new_user_booking_path(current_user), class: "text-secondary text-decoration-none mx-2") do %>
+        <%= link_to(new_user_booking_path(current_user), class: "text-decoration-none mx-2 menu-item") do %>
           <i class="fas fa-plus"></i> Art Booking
         <% end %>
-        <%= link_to(destroy_user_session_path, class: "text-secondary text-decoration-none mx-2") do %>
+        <%= link_to(destroy_user_session_path, class: "text-decoration-none mx-2 menu-item") do %>
           <i class="fas fa-sign-out"></i>
         <% end %>
       <% else %>
-        <%= link_to "Log in", new_user_session_path, class: "nav-link text-secondary text-decoration-none" %>
+        <%= link_to "Log in", new_user_session_path, class: "nav-link text-secondary text-decoration-none menu-item" %>
       <% end %>
 
     </div>
