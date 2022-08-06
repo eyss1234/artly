@@ -5,15 +5,16 @@
   color: $dark-blue;
 } 
 
+a {
+  text-decoration: none;
+}
+
 .art-piece-card-container {
   width: 100%;
   font-size: 18px;
   background-color: rgba(255,255,255,.3);
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-   a {
-    text-decoration: none;
-   }
    p {
     padding: 8px;
     margin: 0px;
