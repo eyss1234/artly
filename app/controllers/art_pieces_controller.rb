@@ -28,6 +28,8 @@ class ArtPiecesController < ApplicationController
     end
   end
 
+
+
 #   def edit
 #   end
 
