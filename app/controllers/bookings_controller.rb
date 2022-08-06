@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    raise
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     authorize @booking
