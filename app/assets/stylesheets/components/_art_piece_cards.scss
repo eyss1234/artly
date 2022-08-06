@@ -31,3 +31,16 @@
   padding: 8px;
   height: 40px;
 }
+
+@media screen and (max-width: 992px) {
+  .art-piece-cards-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .art-piece-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
