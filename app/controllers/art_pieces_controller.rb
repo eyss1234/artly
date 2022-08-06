@@ -8,6 +8,8 @@ class ArtPiecesController < ApplicationController
   end
 
   def show
+    lon, lat = mapbox_coordinates
+    @map_image_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+545454(#{lon},#{lat})/#{lon},#{lat},12.05,0/1000x300?access_token=#{ENV['MAPBOX_API']}"
   end
 
   def new
@@ -53,6 +55,12 @@ class ArtPiecesController < ApplicationController
   def set_art_piece
     @art_piece = ArtPiece.find(params[:id])
     authorize @art_piece
+  end
+
+  def mapbox_coordinates
+    url = "https://api.mapbox.com/geocoding/v5/mapbox.places/#{@art_piece.user.address}.json"
+    res = JSON.parse(HTTP.get(url, params: {access_token: ENV['MAPBOX_API']}).body)
+    res["features"].first["geometry"]["coordinates"]
   end
 
 end
