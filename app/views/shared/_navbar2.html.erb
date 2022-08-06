@@ -7,13 +7,10 @@
       <% if user_signed_in? %>
         <%# changed to boostrap version %>
 
-        <%= link_to(new_user_art_piece_path(current_user), class: "text-decoration-none mx-2 menu-item") do %>
+        <%= link_to new_art_piece_path, class: "text-decoration-none mx-2 menu-item" do %>
           <i class="fas fa-plus"></i> Art For Rent
         <% end %>
-        <%= link_to(new_user_booking_path(current_user), class: "text-decoration-none mx-2 menu-item") do %>
-          <i class="fas fa-plus"></i> Art Booking
-        <% end %>
-        <%= link_to(destroy_user_session_path, class: "text-decoration-none mx-2 menu-item") do %>
+        <%= link_to destroy_user_session_path, class: "text-decoration-none mx-2 menu-item", method: :delete do %>
           <i class="fas fa-sign-out"></i>
         <% end %>
       <% else %>

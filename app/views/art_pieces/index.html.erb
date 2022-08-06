@@ -1,7 +1,9 @@
 <div class="container">
   <div class="container mt-5 art-piece-cards-container">
+
     <% @art_pieces.each do |art_piece| %>
       <%= render "shared/art_piece_cards", art_piece: art_piece %>
     <% end %>
   </div>
+
 </div>
