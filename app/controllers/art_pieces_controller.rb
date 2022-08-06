@@ -9,6 +9,8 @@ class ArtPiecesController < ApplicationController
   def show
     lon, lat = mapbox_coordinates
     @map_image_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+545454(#{lon},#{lat})/#{lon},#{lat},12.05,0/1000x300?access_token=#{ENV['MAPBOX_API']}"
+    @booking = Booking.new()
+    @booking.art_piece = @art_piece
   end
 
   def new
