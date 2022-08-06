@@ -4,6 +4,7 @@
     <%= simple_form_for(@art_piece) do |f|%>
       <%= f.input :name, class: "text-primary" %>
       <%= f.input :description, class: "text-primary" %>
+      <%= f.input :cost_per_day, label: "cost per day (in £)"  %>
       <%= f.input :photos, class: "text-dark", as: :file, input_html: { multiple: true }%>
       <%= f.input :genre, collection: ["abstract", "architecture", "landscape", "seascape", "portrait", "still life", "animals"], class: "text-dark" %>
       <%= f.submit class: "btn btn-warning" %>
