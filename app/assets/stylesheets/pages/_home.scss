@@ -3,6 +3,10 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  .banner-text {
+    padding: 100px 0;
+
+  }
   @media(max-width: 992px){
     .card {
       grid-template-columns: 1fr 1fr;
@@ -15,4 +19,19 @@
   }
   div.text{
     text-align: center;
+  }
+
+  .card-category {
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-family: $body-font;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   }

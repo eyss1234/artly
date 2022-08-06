@@ -2,62 +2,32 @@
 <p>Find me in app/views/pages/home.html.erb</p> %>
 
 <%# <p><span data-controller="typed-js"></span> %>
-<html>
-<body>
-<div class = "navbar">
+<div class ="banner pt-3 text-center" style= "background-image: url('<%= image_path 'homepagephoto.jpg' %>'); background-size: cover;">
+  <div class="banner-text">
+    <h1 class = "text-black">Artify your home</h2>
+    <p class = "text-primary">Discover our exclusive selection of art.</p>
+    <%= link_to "Discover", art_pieces_path, class: "btn btn-primary" %>
+  </div>
 </div>
-</head>
-<div>
-<br>
-<br>
-<br>
 
-<div class ="container pt-3 text-center border-bottom">
- <img src="db/photos/homepagephoto.jpg" alt="homepagephoto" width= "100">
-  <h2>Artify your home</h2>
-  <p>Find beautiful Art to rent. Decorate your house with your favourite pieces based on the occasion.</p>
-  <br>
-   <a href="http://localhost:3000/show/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Discover</a>
-  <br>
-  <br>
-</div>
-<%# <div>
-<h2>Show me what is availeble...</h2>
-<h2>From:</h2> <h2>To:</h2><a href ="" class = "btn btn-primary">Let^s go</a>
-</div> %>
-<br>
-<br>
-<br>
-<br>
- <div class="container">
+ <div class="container mt-3 text-center">
    <%# <div class= "col-12 col-lg-3 display:inline elements. mx-auto"> %>
-    <div class= "cards-products d-flex justify-content-between">
-      <div class ="card" style= "background-image:architecture">
-         <%= @art_pieces.first.name%>
+    <div class= "row">
+      <div class="col-12 col-md-4">
+        <div class ="card-category m-3" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'architecture.jpg' %>');">
+          Share your art
+        </div>
       </div>
-      <div class ="card" style= "background-image:abstract">
-        <%= @art_pieces.second.name%>
+      <div class="col-12 col-md-4">
+        <div class ="card-category m-3" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'seascape.jpg' %>">
+          Find beautiful art to rent
+        </div>
       </div>
-      <div class ="card" style= "background-image:portrait">
-        <%= @art_pieces.third.name%>
+      <div class="col-12 col-md-4">
+        <div class ="card-category m-3" style= "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path 'landscape.jpg' %>">
+          Artify your life
+        </div>
       </div>
   </div>
  </div>
 </div>
-<br>
-<br>
-<br>
-<div class = "container border-top display: flex">
- <%# <div class="row justify-content-left p-3"> %>
-   <div>
-    <p>Get in touch</p>
-    <p>email: artly@gmail.com<p>
-   </div>
-  <%# <div class="row justify-content-right p-3"> %>
-  <div>
-   <p>Happy homes</p>
-  </div>
-</div>
-</div>
-</body>
-</html>
