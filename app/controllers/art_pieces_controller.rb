@@ -1,6 +1,6 @@
 class ArtPiecesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show update destroy]
-  before_action :set_art_piece, only: %i[ show ]
+  before_action :set_art_piece, only: %i[ show edit update ]
 
   def index
     @art_pieces = policy_scope(ArtPiece)
@@ -34,6 +34,7 @@ class ArtPiecesController < ApplicationController
   end
 
   def update
+    orig_photos = @art_piece.photos
     if @art_piece.update(art_piece_params)
       redirect_to art_piece_path(@art_piece)
     else

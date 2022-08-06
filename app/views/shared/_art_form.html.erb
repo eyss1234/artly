@@ -1,0 +1,13 @@
+<div class="text-primary position-absolute start-0 vh-100 vw-100 p-0 m-0" style = "background-size: cover; background-image: url(<%= image_path 'seascape.jpg' %>);">
+  <div class="container shadow p-3 bg-white text-primary mt-3">
+    <h2 class = "border-bottom border-secondary text-end">ADD ART FOR RENT</h2>
+    <%= simple_form_for(art_piece) do |f|%>
+      <%= f.input :name, class: "text-primary" %>
+      <%= f.input :description, class: "text-primary" %>
+      <%= f.input :cost_per_day, label: "Cost per day (in £)"  %>
+      <%= f.input :photos, class: "text-dark", as: :file, input_html: { multiple: true }%>
+      <%= f.input :genre, collection: ["abstract", "architecture", "landscape", "seascape", "portrait", "still life", "animals"], class: "text-dark" %>
+      <%= f.submit class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
