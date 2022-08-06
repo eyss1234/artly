@@ -1,21 +1,23 @@
-  <div class="row mt-3">
-    <div class="col-sm-12 col-md-6">
-      <div class = "art-images m-1 d-flex flex-column align-items-center">
-        <%= cl_image_tag(@art_piece.photos.first.key, folder: "artly") %>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-6">
-      <div class="art-info m-1">
-        <h1 class="border-bottom border-primary text-dark p-1 m-0 text-end">
-          <%= @art_piece.name.upcase%>
-        </h1>
-        <p class="art-genre text-end text-success mt-0 mb-3 p-0"><em><%= @art_piece.genre %></em></p>
-        <p class="art-description p-1 text-secondary">
-          <%= @art_piece.description %>
-        </p>
-        <div class="art-map pb-1 border-bottom border-primary" style = "background-image: url('<%=@map_image_url%>');">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-sm-12 col-md-6">
+        <div class = "art-images m-1 d-flex flex-column align-items-center">
+          <%= cl_image_tag(@art_piece.photos.first.key, folder: "artly") %>
         </div>
-        <%= render "shared/booking_form", booking: @booking %>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="art-info m-1">
+          <h1 class="border-bottom border-primary text-dark p-1 m-0 text-end">
+            <%= @art_piece.name.upcase%>
+          </h1>
+          <p class="art-genre text-end text-success mt-0 mb-3 p-0"><em><%= @art_piece.genre %></em></p>
+          <p class="art-description p-1 text-secondary">
+            <%= @art_piece.description %>
+          </p>
+          <div class="art-map pb-1 border-bottom border-primary" style = "background-image: url('<%=@map_image_url%>');">
+          </div>
+          <%= render "shared/booking_form", booking: @booking %>
+        </div>
       </div>
     </div>
   </div>

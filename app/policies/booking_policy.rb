@@ -8,8 +8,8 @@ class BookingPolicy < ApplicationPolicy
 
   # anyone can make a booking unless its their own art
   def create?
-    not_own_art = current_user != record.art_piece.user
-    current_user == record.user && not_own_art
+    not_own_art = @user != record.art_piece.user
+    @user == record.user && not_own_art
   end
 
   # only booking user can destroy or edit a booking
