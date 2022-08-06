@@ -1,9 +1,14 @@
 class ArtPiecesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show update destroy]
-  before_action :set_art_piece, only: %i[ show ]
+  before_action :set_art_piece, only: %i[ show edit update ]
 
   def index
     @art_pieces = policy_scope(ArtPiece)
+  end
+
+  def new
+    @art_piece = ArtPiece.new()
+    authorize @art_piece
   end
 
   def show
@@ -11,11 +16,6 @@ class ArtPiecesController < ApplicationController
     @map_image_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+545454(#{lon},#{lat})/#{lon},#{lat},12.05,0/1000x300?access_token=#{ENV['MAPBOX_API']}"
     @booking = Booking.new()
     @booking.art_piece = @art_piece
-  end
-
-  def new
-    @art_piece = ArtPiece.new()
-    authorize @art_piece
   end
 
   def create
@@ -34,6 +34,7 @@ class ArtPiecesController < ApplicationController
   end
 
   def update
+    orig_photos = @art_piece.photos
     if @art_piece.update(art_piece_params)
       redirect_to art_piece_path(@art_piece)
     else

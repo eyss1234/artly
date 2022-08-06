@@ -7,5 +7,4 @@ class ArtPiece < ApplicationRecord
 
   validates_presence_of :name, :genre, :description
   validates :genre, inclusion: { in: GENRES }
-
 end
