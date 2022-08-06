@@ -1,7 +1,6 @@
 class ArtPiecesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show update destroy]
   before_action :set_art_piece, only: %i[ show ]
-  # add edit update and destroy to before_action after actions are created
 
   def index
     @art_pieces = policy_scope(ArtPiece)
@@ -28,23 +27,21 @@ class ArtPiecesController < ApplicationController
     end
   end
 
+  def edit
+  end
 
+  def update
+    if @art_piece.update(art_piece_params)
+      redirect_to art_piece_path(@art_piece)
+    else
+      render :edit
+    end
+  end
 
-#   def edit
-#   end
-
-#   def update
-#     if @art_piece.update(art_piece_params)
-#       redirect_to art_piece_path(@art_piece)
-#     else
-#       render :edit
-#     end
-#   end
-
-#   def destroy
-#     @art_piece.destroy
-#     redirect_to art_pieces_path, notice: 'Art piece was successfully destroyed.'
-#   end
+  def destroy
+    @art_piece.destroy
+    redirect_to art_pieces_path, notice: 'Art piece was successfully destroyed.'
+  end
 
   private
 
