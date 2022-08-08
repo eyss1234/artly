@@ -12,4 +12,13 @@ class ArtPiece < ApplicationRecord
     bookings.filter { |booking| booking.end_date >= Date.today }
             .sort { |a, b| a.start_date <=> b.start_date }
   end
+
+  def valid_booking?(d_start, d_end)
+    b = bookings.filter do |booking|
+      straddles_start_date = booking.end_date > d_start && booking.start_date <= d_start
+      straddles_end_date = booking.start_date < d_end && booking.end_date > d_end
+      straddles_start_date || straddles_end_date
+    end
+    b.empty?
+  end
 end
