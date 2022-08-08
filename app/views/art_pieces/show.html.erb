@@ -28,19 +28,7 @@
               <%= link_to "Edit", edit_art_piece_path(@art_piece), class: "btn btn-warning mt-3 text-white" %>
               <%= link_to "Delete", art_piece_path(@art_piece), data: { turbo_method: :delete }, class: "btn btn-outline-warning mt-3 #{'disabled' if !@art_piece.live_bookings.empty?}" %>
               <% if !@art_piece.live_bookings.empty? %>
-                <div class="h3 border-bottom border-primary p-1 mt-3 mb-0 text-start">
-                  UPCOMING BOOKINGS
-                </div>
-                <div class="art-notice text-secondary text-end mt-0 mb-3 border-top"><em>art cannot be deleted as there are outstanding bookings</em></div>
-                <% @art_piece.live_bookings.each do |booking| %>
-                  <div class="card text-start mb-3 art-shadow">
-                    <div class="card-body">
-                      <h5 class="mb-2 border-bottom border-secondary"><strong>Booked by: </strong><%= booking.user.email %></h5>
-                      <p class="m-0"><strong>Start Date: </strong><%=booking.start_date.strftime('%d %B %Y')%></p>
-                      <p class="m-0"><strong>End Date: </strong><%=booking.end_date.strftime('%d %B %Y')%></p>
-                    </div>
-                  </div>
-                <% end %>
+                <%= render "shared/upcoming_bookings", art_piece: @art_piece %>
               <% end %>
             </div>
           <% end %>
