@@ -9,8 +9,7 @@ class ArtPiece < ApplicationRecord
   validates :genre, inclusion: { in: GENRES }
 
   def live_bookings
-    return bookings.filter do |booking|
-      booking.end_date >= Date.today
-    end
+    bookings.filter { |booking| booking.end_date >= Date.today }
+            .sort { |a, b| a.start_date <=> b.start_date }
   end
 end

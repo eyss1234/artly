@@ -29,7 +29,7 @@
               <%= link_to "Delete", art_piece_path(@art_piece), data: { turbo_method: :delete }, class: "btn btn-outline-warning mt-3 #{'disabled' if !@art_piece.live_bookings.empty?}" %>
               <% if !@art_piece.live_bookings.empty? %>
                 <div class="h3 border-bottom border-primary p-1 mt-3 mb-0 text-start">
-                  OUTSTANDING BOOKINGS
+                  UPCOMING BOOKINGS
                 </div>
                 <div class="art-notice text-secondary text-end mt-0 mb-3 border-top"><em>art cannot be deleted as there are outstanding bookings</em></div>
                 <% @art_piece.live_bookings.each do |booking| %>
