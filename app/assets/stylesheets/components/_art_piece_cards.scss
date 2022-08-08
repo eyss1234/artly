@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   color: $dark-blue;
-} 
+}
 
 a {
   text-decoration: none;
@@ -19,6 +19,7 @@ a {
     padding: 8px;
     margin: 0px;
    }
+   height: 100%;
 }
 
 .card-img {
