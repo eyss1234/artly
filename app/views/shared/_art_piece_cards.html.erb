@@ -1,14 +1,18 @@
 <%= link_to art_piece_path(art_piece) do%>
   <div class="art-piece-card-container .text-decoration-none" >
+    <% if art_piece.user == current_user %>
+      <div class="art-piece-owner-badge">owner</div>
+    <% end %>
+
     <% if !art_piece.photos.empty? %>
       <div><%= cl_image_tag art_piece.photos.first.key, class: "card-img" %></div>
     <% else %>
-      <div class="bg-dark text-light"><em>No Photo</em></div>
+      <div class="bg-dark text-light card-img"><em>No Photo</em></div>
     <% end %>
     <div class="art-piece-card-details">
       <h3> <%= art_piece.name %> </h3>
       <span><strong>£<%= art_piece.cost_per_day %>/day</strong></span>
     </div>
-    <p><%= art_piece.description %></p>
+    <p><%= "#{art_piece.description.strip.first(60)}#{art_piece.description.strip.length > 60 ? "..." : ""}" %></p>
   </div>
 <% end %>
