@@ -17,8 +17,8 @@ class BookingsController < ApplicationController
     elsif valid_booking
       render :new, status: :unprocessable_entity
     else
-      flash[:notice] = 'booking overlaps with existing bookings.'
-      flash[:notice] = 'filter gallery for paintings available on the required dates'
+      flash[:notice] = 'booking overlaps with existing bookings. filter for availability on gallery page'
+
       redirect_to art_piece_path(@booking.art_piece)
     end
   end
