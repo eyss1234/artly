@@ -1,16 +1,10 @@
-<% if current_user != @art_piece.user %>
-  <div class="container shadow p-3 bg-white text-primary mt-3">
-    <%= simple_form_for(booking, url: art_piece_bookings_path(@art_piece), method: :post) do |f| %>
-      <%= f.input :start_date, as: :date, html5: true%>
-      <%= f.input :end_date, as: :date, html5: true %>
-      <div class="text-end">
-        <%= f.submit class: "btn btn-warning" %>
-      </div>
-      <%= f.association :art_piece, as: :hidden %>
-    <% end %>
-  <% else %>
+<div class="container shadow p-3 bg-white text-primary mt-3">
+  <%= simple_form_for(booking, url: art_piece_bookings_path(@art_piece), method: :post) do |f| %>
+    <%= f.input :start_date, as: :date, html5: true%>
+    <%= f.input :end_date, as: :date, html5: true %>
     <div class="text-end">
-      <%= link_to "Edit", edit_art_piece_path(@art_piece), class: "btn btn-outline-warning mt-3" %>
+      <%= f.submit class: "btn btn-warning text-white" %>
     </div>
+    <%= f.association :art_piece, as: :hidden %>
   <% end %>
 </div>
