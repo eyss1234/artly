@@ -1,12 +1,16 @@
 .navbar-artly {
   justify-content: space-between;
   background: white;
-  height: 10vh;
+   height: 10vh;
   margin-top:0;
   padding:0;
   position: sticky;
   width: 100%;
   top: 0;
+}
+
+.navbar-artly-orange {
+  background-color: orange
 }
 
 .navbar-artly .navbar-collapse {

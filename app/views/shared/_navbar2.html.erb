@@ -1,8 +1,11 @@
-<div class="navbar navbar-artly navbar-light justify-content-between">
+<div class="navbar navbar-artly navbar-light justify-content-between"
+data-controller="navbar2"
+data-action="scroll@window->navbar2#updateNavbar2">
+</div>
+
     <%= link_to art_pieces_path, class: "navbar-brand" do %>
       <%= image_tag "logo-for-navbar.png" %>
     <% end %>
-
     <div class="menu d-flex text-secondary px-3">
       <% if user_signed_in? %>
         <%# changed to boostrap version %>
