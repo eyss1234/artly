@@ -1,5 +1,5 @@
 <div class="container shadow p-3 bg-white text-primary mt-3">
-  <%= simple_form_for(booking, url: art_piece_bookings_path(@art_piece), method: :post) do |f| %>
+  <%= simple_form_for(booking, url: @url, method: @verb) do |f| %>
     <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.today + 1 } %>
     <%= f.input :end_date, as: :date, html5: true, input_html: { min: Date.today + 1 } %>
     <div class="text-end">
