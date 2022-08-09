@@ -1,0 +1,17 @@
+<% @user.past_bookings.each do |booking| %>
+  <div class="booking-card-container .text-decoration-none" >
+    <% if !booking.art_piece.photos.empty? %>
+      <div><%= cl_image_tag booking.art_piece.photos.first.key, class: "card-img" %></div>
+    <% else %>
+      <div class="bg-dark text-light card-img"><em>No Photo</em></div>
+    <% end %>
+    <div class="booking-card-details">
+      <h3> <%= booking.art_piece.name %> </h3>
+      <p><strong>Start Date: </strong><%=booking.start_date.strftime('%d %B %Y')%></p>
+      <p><strong>End Date: </strong><%=booking.end_date.strftime('%d %B %Y')%></p>
+    </div>  
+  </div>
+<% end %>
+
+
+
