@@ -24,6 +24,7 @@ class ArtPiecesController < ApplicationController
     authorize @art_piece
 
     if @art_piece.save
+      @art_piece.update(art_piece_photos)
       redirect_to art_piece_path(@art_piece), alert: 'Art piece submitted sucessfully'
     else
       render :new, status: :unprocessable_entity
@@ -34,7 +35,10 @@ class ArtPiecesController < ApplicationController
   end
 
   def update
-    if @art_piece.update(art_piece_params)
+    if @art_piece.update(art_piece_edit_params)
+      if params[:art_piece][:photos].count > 1
+        @art_piece.update(art_piece_photos)
+      end
       redirect_to art_piece_path(@art_piece)
     else
       render :edit
@@ -46,7 +50,6 @@ class ArtPiecesController < ApplicationController
       @art_piece.destroy
       redirect_to art_pieces_path, method: :get, notice: 'Art piece was successfully destroyed.'
     else
-      raise
       redirect_to art_piece_path(@art_piece), notice: "Can't delete art with active bookings."
     end
   end
@@ -55,6 +58,14 @@ class ArtPiecesController < ApplicationController
 
   def art_piece_params
     params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day, photos: [])
+  end
+
+  def art_piece_edit_params
+    params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day)
+  end
+
+  def art_piece_photos
+    params.require(:art_piece).permit(photos: [])
   end
 
   def set_art_piece
