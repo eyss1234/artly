@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
 
+  resources :users, only: %i[show]
   resources :bookings, only: %i[edit update destroy]
 
 end

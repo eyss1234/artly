@@ -1,0 +1,12 @@
+<div class= "container mt-5 mb-5">
+  <div>
+    <h2>Upcoming rentals</h2>
+
+  </div>
+  <div>
+    <h2>My art pieces</h2>
+    <% @user.art_pieces.each do |art_piece| %>
+      <%= render "shared/art_piece_cards", art_piece: art_piece %>
+    <% end %>
+  </div>
+</div>
