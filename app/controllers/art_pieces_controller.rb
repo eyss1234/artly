@@ -4,6 +4,7 @@ class ArtPiecesController < ApplicationController
 
   def index
     @art_pieces = policy_scope(ArtPiece)
+    filter_by(params)
   end
 
   def new
@@ -83,4 +84,17 @@ class ArtPiecesController < ApplicationController
     res["features"].first["geometry"]["coordinates"]
   end
 
+  def filter_by(params)
+    if params[:genres]
+      @art_pieces = @art_pieces.filter do |art_piece|
+        params[:genres].include?(art_piece.genre)
+      end
+    end
+
+    if params[:start_date] || params[:end_date]
+      @art_pieces = @art_pieces.filter do |art_piece|
+        art_piece.valid_booking?(params[:start_date], params[:end_date])
+      end
+    end
+  end
 end
