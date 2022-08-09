@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:address])
     devise_parameter_sanitizer.permit(:account_update, keys: [:address])
   end
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || art_pieces_path
+  end
 end
