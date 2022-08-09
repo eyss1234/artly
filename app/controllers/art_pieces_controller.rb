@@ -35,7 +35,7 @@ class ArtPiecesController < ApplicationController
   end
 
   def update
-    if @art_piece.update(art_piece_params)
+    if @art_piece.update(art_piece_edit_params)
       if params[:art_piece][:photos].count > 1
         @art_piece.update(art_piece_photos)
       end
@@ -57,6 +57,10 @@ class ArtPiecesController < ApplicationController
   private
 
   def art_piece_params
+    params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day, photos: [])
+  end
+
+  def art_piece_edit_params
     params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day)
   end
 
