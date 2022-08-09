@@ -1,6 +1,6 @@
 class ArtPiecesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show update destroy]
-  before_action :set_art_piece, only: %i[ show edit update ]
+  before_action :set_art_piece, only: %i[ show edit update destroy ]
 
   def index
     @art_pieces = policy_scope(ArtPiece)
@@ -34,7 +34,6 @@ class ArtPiecesController < ApplicationController
   end
 
   def update
-    orig_photos = @art_piece.photos
     if @art_piece.update(art_piece_params)
       redirect_to art_piece_path(@art_piece)
     else
@@ -43,8 +42,13 @@ class ArtPiecesController < ApplicationController
   end
 
   def destroy
-    @art_piece.destroy
-    redirect_to art_pieces_path, notice: 'Art piece was successfully destroyed.'
+    if @art_piece.live_bookings.empty?
+      @art_piece.destroy
+      redirect_to art_pieces_path, method: :get, notice: 'Art piece was successfully destroyed.'
+    else
+      raise
+      redirect_to art_piece_path(@art_piece), notice: "Can't delete art with active bookings."
+    end
   end
 
   private
@@ -54,8 +58,12 @@ class ArtPiecesController < ApplicationController
   end
 
   def set_art_piece
-    @art_piece = ArtPiece.find(params[:id])
-    authorize @art_piece
+    @art_piece = ArtPiece.find_by_id(params[:id])
+    if @art_piece
+      authorize @art_piece
+    else
+      redirect_to art_pieces_path
+    end
   end
 
   def mapbox_coordinates

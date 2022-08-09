@@ -19,14 +19,17 @@
           <p class="art-description p-1 text-secondary">
             <%= @art_piece.description %>
           </p>
-          <div class="art-map pb-1 border-bottom border-primary" style = "background-image: url('<%=@map_image_url%>');">
+          <div class="art-map pb-1" style = "background-image: url('<%=@map_image_url%>');">
           </div>
           <% if current_user != @art_piece.user %>
             <%= render "shared/booking_form", booking: @booking %>
           <% else %>
             <div class="text-end">
               <%= link_to "Edit", edit_art_piece_path(@art_piece), class: "btn btn-warning mt-3 text-white" %>
-              <%= link_to "Delete", art_piece_path(@art_piece), method: :delete, class: "btn btn-outline-warning mt-3" %>
+              <%= link_to "Delete", art_piece_path(@art_piece), data: { turbo_method: :delete }, class: "btn btn-outline-warning mt-3 #{'disabled' if !@art_piece.live_bookings.empty?}" %>
+              <% if !@art_piece.live_bookings.empty? %>
+                <%= render "shared/upcoming_bookings", art_piece: @art_piece %>
+              <% end %>
             </div>
           <% end %>
         </div>
