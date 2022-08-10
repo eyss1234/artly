@@ -1,7 +1,7 @@
 <div class="container shadow p-3 bg-white text-primary mt-3">
-  <%= simple_form_for(booking, url: @url, method: @verb) do |f| %>
-    <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.today + 1 } %>
-    <%= f.input :end_date, as: :date, html5: true, input_html: { min: Date.today + 1 } %>
+  <%= simple_form_for(booking, url: @url, method: @verb, data: {controller: "datefield"}) do |f| %>
+    <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.today + 1, "data-action" => "input->datefield#update", "data-datefield-target" => "startDate"} %>
+    <%= f.input :end_date, as: :date, html5: true, input_html: { min: Date.today + 1, "data-datefield-target" => "endDate"} %>
     <div class="text-end">
       <%= f.submit class: "btn btn-warning text-white" %>
     </div>
