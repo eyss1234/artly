@@ -1,5 +1,8 @@
-  <div class="container">
-    <div class="row mt-3">
+  <div class="container pt-3">
+  <%= link_to art_pieces_path, class: "text-secondary mt-3" do %>
+    <i class="fas fa-arrow-left"></i> Back to Gallery
+  <% end %>
+    <div class="row">
       <div class="col-sm-12 col-md-6">
         <% if !@art_piece.photos.empty? %>
           <div class = "art-images m-1 d-flex flex-column align-items-center">
