@@ -1,5 +1,8 @@
-<div class= "container mt-5 mb-5">
-  
+<div class="container"><%= link_to art_pieces_path, class: "text-secondary" do %>
+      <i class="fas fa-arrow-left"></i> Back to Gallery
+  <% end %>
+</div>
+<div class= "container mt-3 mb-5">
   <div class="user-booking-container">
     <h2>UPCOMING RENTALS</h2>
     <br>
@@ -22,14 +25,14 @@
       <% else %>
         <p>No past rentals</p>
       <% end %>
-  </div> 
+  </div>
 
   <div class="user-booking-container">
     <h2>MY ART PIECES</h2>
     <br>
     <div class="art-piece-cards-container">
     <% @user.art_pieces.each do |art_piece| %>
-      <%= render "shared/art_piece_cards", art_piece: art_piece %>  
+      <%= render "shared/art_piece_cards", art_piece: art_piece %>
     <% end %>
     </div>
   </div>
