@@ -1,3 +1,16 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+
+.index-form {
+  z-index: 1;
+  margin: 0 auto;
+  position: fixed;
+}
+
+
+@media(max-width: 500px){
+  .index-form {
+    position: relative;
+  }
+}

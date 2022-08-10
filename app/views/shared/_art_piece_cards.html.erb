@@ -13,6 +13,9 @@
       <h3> <%= art_piece.name %> </h3>
       <span><strong>£<%= art_piece.cost_per_day %>/day</strong></span>
     </div>
-    <p><%= "#{art_piece.description.strip.first(60)}#{art_piece.description.strip.length > 60 ? "..." : ""}" %></p>
+    <p><%= "#{art_piece.description.strip.first(55)}#{art_piece.description.strip.length > 55 ? "..." : ""}" %></p>
+    <div class="art-piece-card-genre">
+      <%= art_piece.genre %>
+    </div>
   </div>
 <% end %>
