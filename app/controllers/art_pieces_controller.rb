@@ -94,16 +94,18 @@ class ArtPiecesController < ApplicationController
       end
     end
 
-    unless params[:start_date].nil? || (params[:start_date].empty? && params[:end_date].empty?)
-      params[:start_date] = params[:end_date] if params[:start_date].empty?
-      params[:end_date] = params[:start_date] if params[:end_date].empty?
+    if params[:start_date] || params[:end_date]
+      unless (params[:start_date].empty? && params[:end_date].empty?)
+        params[:start_date] = params[:end_date] if params[:start_date].empty?
+        params[:end_date] = params[:start_date] if params[:end_date].empty?
 
-      if params[:start_date] || params[:end_date]
-        @art_pieces = @art_pieces.filter do |art_piece|
-          art_piece.valid_booking?(
-            params[:start_date] || params[:end_date],
-            params[:end_date] || params[:start_date]
-          )
+        if params[:start_date] || params[:end_date]
+          @art_pieces = @art_pieces.filter do |art_piece|
+            art_piece.valid_booking?(
+              params[:start_date] || params[:end_date],
+              params[:end_date] || params[:start_date]
+            )
+          end
         end
       end
     end
