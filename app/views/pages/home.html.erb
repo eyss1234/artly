@@ -1,13 +1,29 @@
-<%# <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p> %>
 
-<%# <p><span data-controller="typed-js"></span> %>
 <div class ="banner pt-3 text-center" style= "background-image: url('<%= image_path 'homepagephoto.jpg' %>'); background-size: cover;">
+
   <div class="banner-text">
-    <h1 class = "text-black">Artify your home</h2>
-    <p class = "text-primary">Discover our exclusive selection of art.</p>
-    <%= link_to "Discover", art_pieces_path, class: "btn btn-primary" %>
+    <h1 class = "text-black">Artify your home</h1>
+
+<div class ="container">
+   <div id="typed-strings">
+    <p>Discover our exclusive selection of art.</p>
+    <p>Life in colours is better</p>
   </div>
+  </div>
+<span id="typed"></span>
+<div>
+
+   <script>
+    var typed = new Typed('#typed', {
+     stringsElement: '#typed-strings',
+     typeSpeed: 50,
+     backSpeed: 20,
+     loop: true,
+     });
+  </script>
+    <%= link_to "Discover", art_pieces_path, class: "btn btn-primary mt-3" %>
+  </div>
+</div>
 </div>
 
  <div class="container mt-3 text-center">
