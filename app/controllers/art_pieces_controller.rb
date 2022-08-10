@@ -4,6 +4,7 @@ class ArtPiecesController < ApplicationController
 
   def index
     @art_pieces = policy_scope(ArtPiece)
+    filter_by(params)
   end
 
   def new
@@ -16,6 +17,8 @@ class ArtPiecesController < ApplicationController
     @map_image_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+545454(#{lon},#{lat})/#{lon},#{lat},12.05,0/1000x300?access_token=#{ENV['MAPBOX_API']}"
     @booking = Booking.new()
     @booking.art_piece = @art_piece
+    @url = user_signed_in? ? art_piece_bookings_path(@art_piece) : new_user_session_path
+    @verb = user_signed_in? ? :post : :get
   end
 
   def create
@@ -83,4 +86,28 @@ class ArtPiecesController < ApplicationController
     res["features"].first["geometry"]["coordinates"]
   end
 
+  def filter_by(params)
+
+    if params[:genres]
+      @art_pieces = @art_pieces.filter do |art_piece|
+        params[:genres].include?(art_piece.genre)
+      end
+    end
+
+    if params[:start_date] || params[:end_date]
+      unless (params[:start_date].empty? && params[:end_date].empty?)
+        params[:start_date] = params[:end_date] if params[:start_date].empty?
+        params[:end_date] = params[:start_date] if params[:end_date].empty?
+
+        if params[:start_date] || params[:end_date]
+          @art_pieces = @art_pieces.filter do |art_piece|
+            art_piece.valid_booking?(
+              params[:start_date] || params[:end_date],
+              params[:end_date] || params[:start_date]
+            )
+          end
+        end
+      end
+    end
+  end
 end

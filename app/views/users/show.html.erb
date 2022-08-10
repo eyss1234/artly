@@ -1,12 +1,37 @@
 <div class= "container mt-5 mb-5">
-  <div>
-    <h2>Upcoming rentals</h2>
-
-  </div>
-  <div>
-    <h2>My art pieces</h2>
-    <% @user.art_pieces.each do |art_piece| %>
-      <%= render "shared/art_piece_cards", art_piece: art_piece %>
+  
+  <div class="user-booking-container">
+    <h2>UPCOMING RENTALS</h2>
+    <br>
+    <% if !@user.existing_bookings.empty? %>
+      <div class="booking-cards-container">
+        <%= render "shared/user_upcoming_bookings", user: @user %>
+      </div>
+    <% else %>
+      <p>No upcoming rentals</p>
     <% end %>
   </div>
+
+  <div class="user-booking-container">
+    <h2>PAST RENTALS</h2>
+    <br>
+      <% if !@user.past_bookings.empty? %>
+        <div class="booking-cards-container">
+          <%= render "shared/user_past_bookings", user: @user %>
+        </div>
+      <% else %>
+        <p>No past rentals</p>
+      <% end %>
+  </div> 
+
+  <div class="user-booking-container">
+    <h2>MY ART PIECES</h2>
+    <br>
+    <div class="art-piece-cards-container">
+    <% @user.art_pieces.each do |art_piece| %>
+      <%= render "shared/art_piece_cards", art_piece: art_piece %>  
+    <% end %>
+    </div>
+  </div>
+
 </div>

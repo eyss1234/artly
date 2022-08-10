@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/user' => "art_pieces#index", :as => :user_root
   end
 
   devise_for :users, controllers: {
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   }
 
   root to: "pages#home"
+
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -1,9 +1,12 @@
-<div class="container">
-  <div class="container mt-5 art-piece-cards-container">
-
-    <% @art_pieces.each do |art_piece| %>
-      <%= render "shared/art_piece_cards", art_piece: art_piece %>
-    <% end %>
+<div class="row">
+  <div class="col-12 col-sm-4 col-md-2 position-sticky">
+    <%= render "shared/index_filter_form" %>
   </div>
-
+  <div class="col-12 col-sm-6 col-md-10 border-start border-warning">
+    <div class="container mt-3 art-piece-cards-container">
+      <% @art_pieces.each do |art_piece| %>
+        <%= render "shared/art_piece_cards", art_piece: art_piece %>
+      <% end %>
+    </div>
+  </div>
 </div>
