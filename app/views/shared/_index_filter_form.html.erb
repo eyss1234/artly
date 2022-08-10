@@ -3,11 +3,11 @@
           <%= submit_tag "Show me available art", class: "btn btn-warning text-white mt-3 w-100" %>
           <div class="mt-3">
             Start date
-            <%= date_field_tag :start_date, params[:start_date], class: "form-control", min: Date.today + 1, data: {action: "input->indexform#updateMinDate"} %>
+            <%= date_field_tag :start_date, params[:start_date], class: "form-control", min: Date.today + 1, data: {action: "input->indexform#update", indexform_target: "startDate"} %>
           </div>
           <div class="mt-3">
             End date
-            <%= date_field_tag :end_date, params[:end_date], class: "form-control", min: Date.today + 1, data: {target: "endDate"} %>
+            <%= date_field_tag :end_date, params[:end_date], class: "form-control", min: Date.today + 1, data: { indexform_target: "endDate"}%>
           </div>
           <div class="mt-3">
             Genres
