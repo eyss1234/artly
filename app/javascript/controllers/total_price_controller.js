@@ -11,7 +11,7 @@ export default class extends Controller {
   update(event) {
     const date1 = this.firstDateTarget.value;
     const date2 = this.secondDateTarget.value;
-    const this.firstDateTarget.dataset.cost;
+    const cost = this.firstDateTarget.dataset.cost;
     if (date2 === "") {
       return 1
     } else {
