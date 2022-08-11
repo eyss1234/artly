@@ -3,11 +3,13 @@
 @import "show";
 
 .index-form {
-  z-index: 1;
   margin: 0 auto;
-  position: fixed;
+  width: 100%;
 }
 
+.sticky-column {
+  z-index: -1;
+}
 
 @media(max-width: 500px){
   .index-form {
