@@ -18,7 +18,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    current_user == record.user
+    user == record.user
   end
 
 end
