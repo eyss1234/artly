@@ -1,8 +1,6 @@
 <div class ="container mt-3" style= "background-image: url('<%= image_path 'homepagephoto.jpg' %>'); background-size: 100%;">
 <h2>Log in</h2>
 
-<%# <div class = "container form text-center justify-content"> %>
-
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
@@ -19,7 +17,6 @@
     <%= f.button :submit, "Log in", class: "btn btn-warning" %>
   </div>
 <% end %>
-<%# </div> %>
 
 <%= render "devise/shared/links" %>
 </div>
