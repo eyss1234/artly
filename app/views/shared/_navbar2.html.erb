@@ -1,22 +1,34 @@
-<div class="navbar navbar-artly navbar-light justify-content-between">
+<div class="navbar navbar-artly navbar-light justify-content-between position-relative">
+  <div class="container-fluid">
     <%= link_to art_pieces_path, class: "navbar-brand" do %>
       <%= image_tag "logo-for-navbar.png" %>
     <% end %>
 
-    <div class="menu d-flex text-secondary px-3">
-      <% if user_signed_in? %>
-        <%# changed to boostrap version %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <%= link_to new_art_piece_path, class: "text-decoration-none mx-2 menu-item" do %>
-          <i class="fas fa-plus"></i> Art For Rent
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto position-absolute end-0">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "/home", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Art pieces", "/art_pieces", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log Out", "#", class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
         <% end %>
-        <%= link_to destroy_user_session_path, class: "text-decoration-none mx-2 menu-item", method: :delete do %>
-          <i class="fas fa-sign-out"></i>
-        <% end %>
-      <% else %>
-        <%= link_to "Log in", new_user_session_path, class: "nav-link text-secondary text-decoration-none menu-item" %>
-      <% end %>
-
+      </ul>
     </div>
-
+  </div>
 </div>
