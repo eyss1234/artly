@@ -11,7 +11,7 @@
       <div class="bg-dark text-light card-img"><em>No Photo</em></div>
     <% end %>
     <div class="art-piece-card-details">
-      <h3> <%= art_piece.name %> </h3>
+      <h4> <%= art_piece.name %> </h4>
       <span><strong>£<%= art_piece.cost_per_day %>/day</strong></span>
     </div>
     <p><%= "#{art_piece.description.strip.first(55)}#{art_piece.description.strip.length > 55 ? "..." : ""}" %></p>
