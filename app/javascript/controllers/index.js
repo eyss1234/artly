@@ -4,8 +4,11 @@
 
 import { application } from "./application"
 
+import DatefieldController from "./datefield_controller"
+application.register("datefield", DatefieldController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import DatefieldController from "./datefield_controller"
-application.register("datefield", DatefieldController)
+import TotalPriceController from "./total_price_controller"
+application.register("total-price", TotalPriceController)
