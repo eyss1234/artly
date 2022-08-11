@@ -4,19 +4,17 @@
       <%= image_tag "logo-for-navbar.png" %>
     <% end %>
 
+    <% if user_signed_in? %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto position-absolute dropdown-format">
-        <% if user_signed_in? %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto position-absolute dropdown-format">
           <li class="nav-item">
             <%= link_to art_pieces_path, class: "nav-link" do %>
               <i class="fas fa-palette"></i>  Gallery
             <% end %>
           </li>
-
           <li class="nav-item">
             <%= link_to new_art_piece_path, class: "nav-link" do %>
               <i class="fas fa-plus"></i>  Art for Rent
@@ -28,16 +26,14 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to destroy_user_session_path, class: "nav-link" do %>
+            <%= link_to destroy_user_session_path, class: "nav-link me-3" do %>
               <i class="fas fa-sign-out"></i>  Log out
             <% end %>
           </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+        </ul>
+      </div>
+    <% else %>
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    <% end %>
   </div>
 </div>
