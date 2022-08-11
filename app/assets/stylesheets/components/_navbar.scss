@@ -44,7 +44,10 @@ a.menu-item:hover {
   border: 1px solid $warning;
 }
 
-.nav-link:hover {
+.nav-item:hover {
   background-color: $warning;
+}
+
+.nav-link:hover {
   color: white;
 }
