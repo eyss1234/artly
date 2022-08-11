@@ -1,3 +1,18 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+
+.index-form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sticky-column {
+  z-index: -1;
+}
+
+@media(max-width: 500px){
+  .index-form {
+    position: relative;
+  }
+}

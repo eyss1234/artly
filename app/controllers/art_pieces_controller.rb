@@ -4,6 +4,7 @@ class ArtPiecesController < ApplicationController
 
   def index
     @art_pieces = policy_scope(ArtPiece)
+    @art_pieces = @art_pieces.filter { |art| art.available_for_rent }
     filter_by(params)
   end
 
@@ -60,11 +61,11 @@ class ArtPiecesController < ApplicationController
   private
 
   def art_piece_params
-    params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day, photos: [])
+    params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day, :available_for_rent, photos: [])
   end
 
   def art_piece_edit_params
-    params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day)
+    params.require(:art_piece).permit(:name, :genre, :description, :cost_per_day, :available_for_rent)
   end
 
   def art_piece_photos

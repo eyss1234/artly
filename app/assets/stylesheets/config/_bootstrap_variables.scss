@@ -14,7 +14,7 @@ $body-color: $dark-grey;
 $primary:    $dark-blue;
 $secondary:  $grey;
 $light:      $grey-white;
-$success:    $dark-grey;
+$success:    $light-gray;
 $info:       $angry-salmon;
 $danger:     $red;
 $warning:    $orange;
@@ -25,3 +25,9 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+.form-check-label {
+  color: $grey !important;
+}
+.form-check-input {
+  background-color: $grey !important;
+}
