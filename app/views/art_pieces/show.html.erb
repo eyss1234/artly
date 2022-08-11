@@ -1,7 +1,7 @@
   <div class="container pt-3">
-  <%= link_to art_pieces_path, class: "text-secondary mt-3" do %>
-    <i class="fas fa-arrow-left"></i> Back to Gallery
-  <% end %>
+    <%= link_to art_pieces_path, class: "text-secondary mt-3" do %>
+      <i class="fas fa-arrow-left"></i> Back to Gallery
+    <% end %>
     <div class="row">
       <div class="col-sm-12 col-md-6">
         <% if !@art_piece.photos.empty? %>
@@ -18,14 +18,20 @@
           <h1 class="border-bottom border-primary text-dark p-1 m-0 text-end">
             <%= @art_piece.name.upcase%>
           </h1>
-          <p class="art-genre text-end text-success mt-0 mb-3 p-0"><em><%= @art_piece.genre %></em></p>
+          <p class="art-genre text-end text-secondary mt-0 mb-3 p-0"><em><%= @art_piece.genre %></em></p>
           <p class="art-description p-1 text-secondary">
             <%= @art_piece.description %>
           </p>
+          <p class="mb-0 text-secondary"><strong>Cost per day: £<%= @art_piece.cost_per_day %></strong></p>
+          <% if current_user == @art_piece.user %>
+          <p class="mt-0 text-secondary">Available for rent: <%=@art_piece.available_for_rent ? "Yes" : "No" %></p>
+          <% end %>
           <div class="art-map pb-1" style = "background-image: url('<%=@map_image_url%>');">
           </div>
-          <% if current_user != @art_piece.user %>
+          <% if current_user != @art_piece.user && @art_piece.available_for_rent %>
             <%= render "shared/booking_form", booking: @booking %>
+          <% elsif current_user != @art_piece.user %>
+            <div class="m-3 bg-warning d-block text-center text-white shadow rounded">This artpiece is not currently available to rent</div>
           <% else %>
             <div class="text-end">
               <%= link_to "Edit", edit_art_piece_path(@art_piece), class: "btn btn-warning mt-3 text-white" %>

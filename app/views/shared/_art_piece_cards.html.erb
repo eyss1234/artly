@@ -2,8 +2,9 @@
   <div class="art-piece-card-container .text-decoration-none" >
     <% if art_piece.user == current_user && !request.path.include?("users")  %>
       <div class="art-piece-owner-badge">owner</div>
+    <% elsif art_piece.user == current_user && request.path.include?("users") && !art_piece.available_for_rent%>
+      <div class="art-piece-owner-badge">not rentable</div>
     <% end %>
-
     <% if !art_piece.photos.empty? %>
       <div><%= cl_image_tag art_piece.photos.first.key, class: "card-img" %></div>
     <% else %>
@@ -14,6 +15,7 @@
       <span><strong>£<%= art_piece.cost_per_day %>/day</strong></span>
     </div>
     <p><%= "#{art_piece.description.strip.first(55)}#{art_piece.description.strip.length > 55 ? "..." : ""}" %></p>
+
     <div class="art-piece-card-genre">
       <%= art_piece.genre %>
     </div>
