@@ -35,7 +35,6 @@ a.menu-item:hover {
 }
 
 .dropdown-format {
-  padding: 8px 24px;
   right: 5px;
   background-color: white;
   border-radius: 9px;
@@ -45,9 +44,9 @@ a.menu-item:hover {
 }
 
 .nav-item:hover {
-  background-color: $warning;
+  background-color: $transparent-orange;
 }
 
-.nav-link:hover {
-  color: white;
+.nav-item {
+  padding: 4px 24px;
 }
