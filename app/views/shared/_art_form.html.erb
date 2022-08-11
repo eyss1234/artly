@@ -14,6 +14,7 @@
       <%= f.input :name, class: "text-primary" %>
       <%= f.input :description, class: "text-primary" %>
       <%= f.input :cost_per_day, label: "Cost per day (in £)"  %>
+      <%= f.input :available_for_rent %>
       <%= f.input :photos, class: "text-dark", as: :file, input_html: { multiple: true }%>
       <%= f.input :genre, collection: ["abstract", "architecture", "landscape", "seascape", "portrait", "still life", "animals"], class: "text-dark" %>
       <div class="text-end">

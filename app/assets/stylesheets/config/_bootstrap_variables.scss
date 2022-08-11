@@ -25,3 +25,9 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+.form-check-label {
+  color: $grey !important;
+}
+.form-check-input {
+  background-color: $grey !important;
+}
