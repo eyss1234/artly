@@ -4,24 +4,7 @@
     <%= render "shared/index_filter_form" %>
   </div>
   <div class="col-12 col-sm-6 col-md-10 border-start border-warning">
-    <div class="text-end">
-      <button class="sort-toggler btn btn-success btn-round pb-0" type="button" data-bs-toggle="collapse" data-bs-target="#sortSupportedContent" aria-controls="sortSupportedContent" aria-expanded="false" aria-label="Toggle sort">
-        <i class="fas fa-caret-down"></i> Sort
-      </button>
-    </div>
-    <div class="collapse sort-collapse" id="sortSupportedContent">
-        <%= form_tag art_pieces_path, method: :get, class: "" do %>
-        <ul class="navbar-nav position-absolute sort-dropdown">
-            <li class="nav-item">
-              <%= submit_tag "Price ascending", class: "" %>
-            </li>
-            <li class="nav-item">
-              <%= submit_tag "Price descending", class: "" %>
-            </li>
-        </ul>
-        <% end %>
-    </div>
-
+    <%= render 'shared/sort_menu' %>
     <div class="container mt-3 art-piece-cards-container">
       <% @art_pieces.each do |art_piece| %>
         <%= render "shared/art_piece_cards", art_piece: art_piece %>
