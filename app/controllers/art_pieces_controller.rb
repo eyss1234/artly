@@ -7,6 +7,8 @@ class ArtPiecesController < ApplicationController
     @art_pieces = @art_pieces.filter { |art| art.available_for_rent }
     filter_by(params)
     sort_by(params)
+    @sort_options = ["None", "Top Rated", "Price ascending", "Price descending"]
+    @sort_options.delete(params[:sort])
   end
 
   def new
@@ -115,12 +117,14 @@ class ArtPiecesController < ApplicationController
 
   def sort_by(params)
 
-    if params[:commit]
-      if params[:commit] === "Price ascending"
-        @art_pieces = @art_pieces.sort_by { |a| a.cost_per_day }
-      elsif params[:commit] === "Price descending"
-        @art_pieces = @art_pieces.sort_by { |a| -a.cost_per_day }
-      end
+    params[:sort] = params[:commit] unless params[:commit].include?('Apply')
+
+    # add top rated sort by average if possible
+    if params[:sort] === "Price ascending"
+      @art_pieces = @art_pieces.sort_by { |a| a.cost_per_day }
+    elsif params[:sort] === "Price descending"
+      @art_pieces = @art_pieces.sort_by { |a| -a.cost_per_day }
     end
+
   end
 end

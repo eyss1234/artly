@@ -4,8 +4,10 @@
   </button>
 </div>
 <div class="collapse sort-collapse" id="sortSupportedContent">
-    <%= form_tag art_pieces_path, method: :get, class: "" do %>
     <ul class="navbar-nav position-absolute sort-dropdown">
+        <li class="nav-item">
+          <%= submit_tag "Top Rated", class: "" %>
+        </li>
         <li class="nav-item">
           <%= submit_tag "Price ascending", class: "" %>
         </li>
@@ -13,5 +15,4 @@
           <%= submit_tag "Price descending", class: "" %>
         </li>
     </ul>
-    <% end %>
 </div>
