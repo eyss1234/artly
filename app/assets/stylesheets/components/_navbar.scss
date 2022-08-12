@@ -35,7 +35,6 @@ a.menu-item:hover {
 }
 
 .dropdown-format {
-  padding: 8px 24px;
   right: 5px;
   background-color: white;
   border-radius: 9px;
@@ -44,7 +43,14 @@ a.menu-item:hover {
   border: 1px solid $warning;
 }
 
-.nav-link:hover {
-  background-color: $warning;
-  color: white;
+.nav-item:hover {
+  background-color: $transparent-orange;
+}
+
+.nav-item {
+  padding: 4px 24px;
+}
+
+.navbar-toggler {
+  border: none;
 }
