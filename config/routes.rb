@@ -24,5 +24,4 @@ Rails.application.routes.draw do
   resources :users, only: %i[show]
   resources :bookings, only: %i[edit update destroy]
 
-  get '/art_pieces/sort/:sort' => 'art_pieces#index'
 end
