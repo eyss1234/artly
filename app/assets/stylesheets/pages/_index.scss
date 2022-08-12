@@ -11,6 +11,27 @@
   z-index: -1;
 }
 
+.sort-dropdown {
+  background-color: white;
+  border: 1px solid $warning;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+  padding: 8px 0;
+  z-index: 1000;
+  border-radius: 8px;
+  right: 8px;
+  .nav-item input {
+    border: none;
+    background-color: white;
+    margin: 0;
+    padding: 0px 16px;
+    text-align: center;
+    width:100%;
+  }
+  .nav-item input:hover {
+    background-color: $transparent-orange;
+  }
+
+}
 @media(max-width: 500px){
   .index-form {
     position: relative;
