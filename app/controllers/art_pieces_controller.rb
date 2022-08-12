@@ -6,6 +6,7 @@ class ArtPiecesController < ApplicationController
     @art_pieces = policy_scope(ArtPiece)
     @art_pieces = @art_pieces.filter { |art| art.available_for_rent }
     filter_by(params)
+    sort_by(params)
   end
 
   def new
@@ -108,6 +109,17 @@ class ArtPiecesController < ApplicationController
             )
           end
         end
+      end
+    end
+  end
+
+  def sort_by(params)
+
+    if params[:commit]
+      if params[:commit] === "Price ascending"
+        @art_pieces = @art_pieces.sort_by { |a| a.cost_per_day }
+      elsif params[:commit] === "Price descending"
+        @art_pieces = @art_pieces.sort_by { |a| -a.cost_per_day }
       end
     end
   end

@@ -4,6 +4,7 @@
     <%= render "shared/index_filter_form" %>
   </div>
   <div class="col-12 col-sm-6 col-md-10 border-start border-warning">
+    <%= render 'shared/sort_menu' %>
     <div class="container mt-3 art-piece-cards-container">
       <% @art_pieces.each do |art_piece| %>
         <%= render "shared/art_piece_cards", art_piece: art_piece %>
