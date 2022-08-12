@@ -3,6 +3,7 @@ class RatingsController < ApplicationController
 
   def new
     @rating = Rating.new()
+    authorize @rating
   end
 
   def create
@@ -30,5 +31,6 @@ class RatingsController < ApplicationController
 
   def set_rating
     @rating = Rating.find(params[:id])
+    authorize @rating
   end
 end
