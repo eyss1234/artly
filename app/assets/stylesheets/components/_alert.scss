@@ -1,6 +1,15 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  top: 40%;
+  margin-right: 35%;
+  margin-left: 35%;
+  width: 30%;
   z-index: 1000;
+
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px;
+  color: black;
+  padding: 18px 18px;
+  text-align: center;
 }
