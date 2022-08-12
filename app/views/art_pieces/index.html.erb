@@ -4,7 +4,7 @@
       <div class="sticky-column col-12 col-sm-4 col-md-2 bg-success">
         <%= render "shared/index_filter_form" %>
       </div>
-      <div class="col-12 col-sm-6 col-md-10 border-start border-warning">
+      <div class="col-12 col-sm-6 offset-sm-6 col-md-10 offset-md-2 border-start border-warning">
         <%= render 'shared/sort_menu' %>
         <div class="container mt-3 art-piece-cards-container">
           <% @art_pieces.each do |art_piece| %>
