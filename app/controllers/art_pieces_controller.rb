@@ -117,7 +117,7 @@ class ArtPiecesController < ApplicationController
 
   def sort_by(params)
 
-    params[:sort] = params[:commit] unless params[:commit].include?('Apply')
+    params[:sort] = params[:commit] unless (params[:commit]||'').include?('Apply')
 
     # add top rated sort by average if possible
     if params[:sort] === "Price ascending"
