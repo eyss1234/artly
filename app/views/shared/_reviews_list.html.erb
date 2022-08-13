@@ -1,0 +1,20 @@
+<div class="container mt-3">
+  <div class="h3 border-bottom border-primary p-1 mt-3 mb-0 text-start">
+  REVIEWS
+</div>
+  <% bookings.each do |booking| %>
+    <% if booking.rating %>
+      <div class="text-start mb-3 px-3 pt-3 position-relative">
+        <div class="d-flex justify-content-between border-bottom border-secondary">
+          <h5 class = "m-0 p-0">
+            <strong><%= booking.rating.title %></strong>
+          </h5>
+          <div class="text-end"><%= "⭐"*booking.rating.rating %></div>
+        </div>
+        <div class = "art-description text-secondary mt-3 mb-0"><%= booking.rating.review %></div>
+        <div class="art-description text-secondary mt-0 p-0 text-end"><em><%=booking.user.email %></em></div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
