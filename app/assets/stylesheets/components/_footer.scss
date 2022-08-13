@@ -1,3 +1,15 @@
+body {
+  min-height:100vh;
+  padding-bottom: 50px; 
+  position:relative; 
+}
+
+/* Trick: */
+
 .footer {
-  border-top: 1px solid $orange
+  border-top: 1px solid $orange;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  align-items: center;
 }
