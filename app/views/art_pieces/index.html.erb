@@ -1,7 +1,17 @@
-<div class="container">
-  <div class="container mt-5 art-piece-cards-container">
-    <% @art_pieces.each do |art_piece| %>
-      <%= render "shared/art_piece_cards", art_piece: art_piece %>
-    <% end %>
-  </div>
+<div class="art-index-container">
+  <%= form_tag art_pieces_path, method: :get, data: {controller: "datefield"} do %>
+    <div class="row position-relative">
+      <div class="sticky-column col-12 col-sm-4 col-md-2 bg-success">
+        <%= render "shared/index_filter_form" %>
+      </div>
+      <div class="col-12 col-sm-6 offset-sm-6 col-md-10 offset-md-2 border-start border-warning">
+        <%= render 'shared/sort_menu' %>
+        <div class="container mt-3 art-piece-cards-container">
+          <% @art_pieces.each do |art_piece| %>
+            <%= render "shared/art_piece_cards", art_piece: art_piece %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

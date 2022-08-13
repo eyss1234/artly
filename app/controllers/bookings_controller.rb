@@ -8,14 +8,24 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    authorize @booking
-    if @booking.save
-      redirect_to user_path(current_user), alert: 'Booking made - enjoy your new artwork!'
-    else
-      render :new, status: :unprocessable_entity
-    end
+      @booking = Booking.new(booking_params)
+      @booking.user = current_user
+
+      valid = @booking.art_piece.valid_booking?(@booking.start_date, @booking.end_date)
+      available = @booking.art_piece.available_for_rent
+      authorize @booking
+
+      if valid && available && @booking.save
+        redirect_to user_path(current_user), alert: 'Booking made - enjoy your new artwork!'
+      elsif valid_booking && available
+        render :new, status: :unprocessable_entity
+      elsif !available
+        flash[:notice] = 'this art piece is not available to rent'
+        redirect_to art_piece_path(@booking.art_piece)
+      elsif !valid
+        flash[:notice] = 'booking overlaps with existing bookings. filter for availability on gallery page'
+        redirect_to art_piece_path(@booking.art_piece)
+      end
   end
 
   def edit

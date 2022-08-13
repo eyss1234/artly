@@ -1,0 +1,25 @@
+
+<div class = "index-form d-flex flex-column align-items-center">
+  <div class = "w-100 m-0 p-2 position-sticky">
+    <%= submit_tag "Apply filters", class: "btn btn-warning text-white mt-3 w-100" %>
+    <div class="mt-3">
+      Start date
+      <%= date_field_tag :start_date, params[:start_date], class: "form-control", min: Date.today + 1, data: {action: "input->datefield#update", datefield_target: "startDate"} %>
+    </div>
+    <div class="mt-3">
+      End date
+      <%= date_field_tag :end_date, params[:end_date], class: "form-control", min: Date.today + 1, data: { datefield_target: "endDate"}%>
+    </div>
+    <div class="mt-3">
+      Genres
+      <%= select_tag :genres, options_for_select(ArtPiece::GENRES), multiple: true, class: "form-select" %>
+    </div>
+    <div class="mt-3">
+      Sort order
+      <%= select_tag :sort, options_for_select([params[:sort]]+@sort_options), class: "form-select"  %>
+    </div>
+  </div>
+  <%= link_to art_pieces_path, class: "mt-3 text-sm text-decoration-none text-secondary" do %>
+    clear filters
+  <% end %>
+</div>

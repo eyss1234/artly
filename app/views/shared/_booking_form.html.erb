@@ -1,9 +1,9 @@
 <div class="container shadow p-3 bg-white text-primary mt-3">
-  <%= simple_form_for(booking, url: user_bookings_path(current_user), method: :post) do |f| %>
-    <%= f.input :start_date, as: :date, html5: true %>
-    <%= f.input :end_date, as: :date, html5: true %>
+  <%= simple_form_for(booking, url: @url, method: @verb, data: {controller: "datefield total-price"}) do |f| %>
+    <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.today + 1, "data-cost" => booking.art_piece.cost_per_day, "data-action" => "input->datefield#update input->total-price#update", "data-datefield-target" => "startDate", "data-total-price-target" => "firstDate"} %>
+    <%= f.input :end_date, as: :date, html5: true, input_html: { min: Date.today + 1, "data-action" => "input->total-price#update", "data-datefield-target" => "endDate", "data-total-price-target" => "secondDate"} %>
     <div class="text-end">
-      <%= f.submit class: "btn btn-warning" %>
+      <%= f.submit class: "btn btn-warning text-white" %>
     </div>
     <%= f.association :art_piece, as: :hidden %>
   <% end %>

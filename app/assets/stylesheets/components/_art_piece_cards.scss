@@ -1,15 +1,17 @@
 .art-piece-cards-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 24px;
   color: $dark-blue;
-} 
+  z-index: 0;
+}
 
 a {
   text-decoration: none;
 }
 
 .art-piece-card-container {
+  position: relative;
   width: 100%;
   font-size: 18px;
   background-color: rgba(255,255,255,.3);
@@ -19,6 +21,7 @@ a {
     padding: 8px;
     margin: 0px;
    }
+   height: 100%;
 }
 
 .card-img {
@@ -31,10 +34,44 @@ a {
 .art-piece-card-details {
   display: flex;
   justify-content: space-between;
-  padding: 8px;
-  height: 40px;
+  padding: 8px 8px 0 8px;
+  h4 {
+    margin: 0;
+  }
 }
 
+.art-piece-owner-badge {
+  position: absolute;
+  text-align: center;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  color: #E67E22;
+  transform: rotate(45deg) translate(25%, -32%);
+  width: 30%;
+  background: #f4f4f4;
+  font-size: 16px;
+}
+
+.art-piece-card-genre {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  border-radius: 16px;
+  font-size: 10px;
+  border: 1px solid #8b8a89;
+  color: #8b8a89;
+  padding: 2px 5px;
+  background-color: white;
+  z-index: 1;
+}
+
+@media(max-width: 1300px) {
+  h4 {
+    font-size: 1.6rem;
+  }
+
+}
 @media(max-width: 992px){
   .art-piece-cards-container {
     grid-template-columns: 1fr 1fr;

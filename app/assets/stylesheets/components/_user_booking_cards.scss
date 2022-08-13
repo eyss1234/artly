@@ -1,0 +1,65 @@
+.user-booking-container {
+ color: $dark-blue;
+ padding-bottom: 40px;
+
+
+  h2 {
+    border-bottom: 1px solid;
+  }
+}
+
+.booking-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+  color: $dark-blue;
+  z-index: 0;
+
+}
+
+
+.booking-card-container {
+  display: flex;
+  width: 100%;
+  background-color: rgba(255,255,255,.3);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  height: 200px;
+  
+
+   .card-img {
+    height: 100%;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 5px 0px 0px 5px;
+  }
+
+  .booking-card-details {
+    justify-content: center;
+    padding: 16px;
+    margin: 0px;
+    width: 100%;
+
+    h3 {
+      border-bottom: 1px solid;
+    }
+
+    p {
+      text-align: right;
+      margin: 0;
+      padding-top: 8px;
+    }
+    
+    .booking-card-buttons {
+      text-align: right;
+    }
+  }
+}
+
+@media(max-width: 960px){
+  .booking-cards-container {
+    grid-template-columns: 1fr;
+  }
+
+}
+

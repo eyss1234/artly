@@ -1,9 +1,27 @@
 .art-images, .art-info {
   overflow: hidden;
+
+}
+
+.art-images img {
+  width: 100%;
 }
 
 .art-map {
   height: 20vh;
   background-size: cover;
   background-position: center;
+}
+
+.art-notice {
+  font-size: 16px;
+}
+
+.art-shadow {
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.art-index-container {
+  width: 98%;
+  margin: 0 auto;
 }
