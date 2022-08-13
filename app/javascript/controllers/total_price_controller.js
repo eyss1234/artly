@@ -18,7 +18,7 @@ export default class extends Controller {
       const sndDate = new Date(date2);
       const diffTime = Math.abs(fstDate - sndDate);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      const totalCost = cost * diffDays;
+      const totalCost = cost + cost * diffDays;
       this.totalTarget.innerHTML = `<strong>Total price: £${totalCost}</strong>`
       this.totalTarget.style = "display: block;"
     }
