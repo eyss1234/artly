@@ -1,0 +1,8 @@
+<%= simple_form_for(rating) do |f| %>
+      <%= f.input :title, class: "text-primary" %>
+      <%= f.input :review, class: "text-primary" %>
+      <%= f.input :rating, label: "Rating 1 to 5"  %>
+      <div class="text-end">
+        <%= f.submit class: "btn btn-warning text-white" %>
+      </div>
+<% end %>
