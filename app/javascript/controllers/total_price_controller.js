@@ -6,21 +6,22 @@ export default class extends Controller {
     console.log('Hello from total_price controller')
   }
 
-  static targets = ["secondDate", "firstDate"]
+  static targets = ["secondDate", "firstDate", "total"]
 
   update(event) {
     const date1 = this.firstDateTarget.value;
     const date2 = this.secondDateTarget.value;
-    const cost = this.firstDateTarget.dataset.cost;
-    if (date2 === "") {
-      return 1
-    } else {
-      fstDate = Date.new(date1)
-      sndDate = Date.new(date2)
+    const cost = Number.parseInt(document.getElementById("cost").dataset.cost);
+    
+    if (date2 && date1) {
+      const fstDate = new Date(date1);
+      const sndDate = new Date(date2);
       const diffTime = Math.abs(fstDate - sndDate);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      console.log(diffDays)
-      return diffDays
+      const totalCost = cost * diffDays;
+      this.totalTarget.innerHTML = `<strong>Total price: £${totalCost}</strong>`
+      this.totalTarget.style = "display: block;"
     }
   }
+
 }

@@ -22,7 +22,7 @@
           <p class="art-description p-1 text-secondary">
             <%= @art_piece.description %>
           </p>
-          <p class="mb-0 text-secondary"><strong>Cost per day: £<%= @art_piece.cost_per_day %></strong></p>
+          <p class="mb-0 text-secondary" id="cost" data-cost=<%= @art_piece.cost_per_day %>><strong>Cost per day: £<%= @art_piece.cost_per_day %></strong></p>
           <% if current_user == @art_piece.user %>
           <p class="mt-0 text-secondary">Available for rent: <%=@art_piece.available_for_rent ? "Yes" : "No" %></p>
           <% end %>
