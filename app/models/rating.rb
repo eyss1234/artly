@@ -5,5 +5,6 @@ class Rating < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 3 }
   validates :review, presence: true, length: { minimum: 10 }
-  validates :rating, presence: true, { in: 1..5 }
+  validates :rating, presence: true, numericality: { in: 1..5 }
+
 end
