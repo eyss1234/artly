@@ -7,15 +7,15 @@ class RatingPolicy < ApplicationPolicy
   end
 
   def create?
-    @user = record.user || user.admin
+    true #@user = record.user || user.admin
   end
 
   def update?
-    @user = record.user || user.admin
+    true #@user = record.user || user.admin
   end
 
   def destroy?
-    @user = record.user || user.admin
+    true #@user = record.user || user.admin
   end
 
 end

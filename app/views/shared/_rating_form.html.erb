@@ -1,12 +1,13 @@
 
- <%= simple_form_for(rating) do |f| %>
-    <%= f.input :title, label: "title"  %>
-    <%= f.input :description, class: "text-primary" %>
-    <%= f.input :review, label: "Leave a review here"  %>
-    <%= f.input :description, class: "text-primary" %>
-    <%= f.input :rating, label: "Choose rating 1 to 5"  %>
-    <%= f.input :amount, as: :numeric %>
-    <div class="text-end">
-     <%= f.submit class: "btn btn-warning text-white" %>
-    </div>
- <% end %>
+ <div class="text-primary position-absolute start-0 vh-100 vw-100 p-0 m-0" style = "background-size: cover; background-image: url(<%= image_path 'seascape.jpg' %>);">
+  <div class="container shadow p-3 bg-white text-primary mt-3 text-start">
+    <%= simple_form_for(rating, url: booking_ratings_path(booking), method: :post) do |f| %>
+        <%= f.input :title, label: "title"  %>
+        <%= f.input :review, placeholder: "Leave a review here", label: false  %>
+        <%= f.input :rating, label: "Choose rating 1 to 5"  %>
+        <div class="text-end">
+        <%= f.submit class: "btn btn-warning text-white" %>
+        </div>
+    <% end %>
+  </div>
+</div>

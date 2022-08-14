@@ -3,11 +3,20 @@ class RatingsController < ApplicationController
 
   def new
     @rating = Rating.new()
+    @booking = Booking.find(params[:booking_id])
+    authorize @booking
     authorize @rating
   end
 
   def create
-    @rating = Rating.create(rating_params)
+    @rating = Rating.new(rating_params)
+    @rating.booking_id = params[:booking_id]
+    authorize @rating
+    if @rating.save
+      redirect_to art_piece_path(@rating.booking.art_piece)
+    else
+      render new_booking_rating_path(@rating.booking), status: :unprocessable_entity
+    end
   end
 
   def edit
