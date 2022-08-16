@@ -26,7 +26,9 @@
           <% if current_user == @art_piece.user %>
           <p class="mt-0 text-secondary">Available for rent: <%=@art_piece.available_for_rent ? "Yes" : "No" %></p>
           <% end %>
-          <div class="art-map pb-1" style = "background-image: url('<%=@map_image_url%>');">
+          <% if @map_image_url %>
+            <div class="art-map pb-1" style = "background-image: url('<%=@map_image_url%>');">
+          <% end %>
           </div>
           <% if current_user != @art_piece.user && @art_piece.available_for_rent %>
             <%= render "shared/booking_form", booking: @booking %>
@@ -45,3 +47,5 @@
       </div>
     </div>
   </div>
+  <%=  render "shared/reviews_list", bookings: @art_piece.bookings.sort_by{|b| b.rating ? -b.rating.rating : 0} %>
+</div>

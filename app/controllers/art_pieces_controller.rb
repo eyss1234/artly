@@ -17,8 +17,8 @@ class ArtPiecesController < ApplicationController
   end
 
   def show
-    lon, lat = mapbox_coordinates
-    @map_image_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+545454(#{lon},#{lat})/#{lon},#{lat},12.05,0/1000x300?access_token=#{ENV['MAPBOX_API']}"
+    # lon, lat = mapbox_coordinates
+    # @map_image_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s+545454(#{lon},#{lat})/#{lon},#{lat},12.05,0/1000x300?access_token=#{ENV['MAPBOX_API']}"
     @booking = Booking.new()
     @booking.art_piece = @art_piece
     @url = user_signed_in? ? art_piece_bookings_path(@art_piece) : new_user_session_path
