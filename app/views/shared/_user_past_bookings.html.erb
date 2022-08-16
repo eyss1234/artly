@@ -10,7 +10,11 @@
       <p><strong>Start Date: </strong><%=booking.start_date.strftime('%d %B %Y')%></p>
       <p><strong>End Date: </strong><%=booking.end_date.strftime('%d %B %Y')%></p>
       <div class="booking-card-buttons">
-        <%= link_to "Add Review", new_booking_rating_path(booking), class: "btn btn-warning mt-3 text-white" %>
+        <% if booking.rating %>
+          <%= link_to "Edit Review", edit_rating_path(booking.rating), class: "btn btn-warning mt-3 text-white" %>
+        <% else %>
+          <%= link_to "Add Review", new_booking_rating_path(booking), class: "btn btn-warning mt-3 text-white" %>
+        <% end %>
     </div>
     </div>
 

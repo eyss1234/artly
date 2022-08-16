@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[show]
+
   resources :bookings, only: %i[edit update destroy] do
-    resources :ratings, only: %i[new create edit update destroy]
+    resources :ratings, only: %i[new create]
   end
+
+  resources :ratings, only: %i[edit update destroy]
 end

@@ -6,6 +6,8 @@ class RatingsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     authorize @booking
     authorize @rating
+    @method = :post
+    @url = booking_ratings_path(@booking)
   end
 
   def create
@@ -20,11 +22,13 @@ class RatingsController < ApplicationController
   end
 
   def edit
+    @method = :patch
+    @url = rating_path(@rating)
   end
 
   def update
     @rating.update(rating_params)
-    redirect_to user_path(current_user)
+    redirect_to art_piece_path(@rating.booking.art_piece)
   end
 
   def destroy
