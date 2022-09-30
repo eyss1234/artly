@@ -14,14 +14,17 @@
 - Create booking by adding dates to form 
 - Art owner receives the booking details and art renter can view and edit bookings
 
+## API
+- Mapbox
+- Cloudinary
 
 ## Technology Stack
-Ruby on Rails, using
-Ruby
-AJAX
-Javascript
-Bootstrap
-Stimulus
+- Ruby on Rails
+- Ruby
+- AJAX
+- Javascript
+- Bootstrap
+- Stimulus
 
 ## Outstanding issues or additional features to build in the future
 - add ratings to art pieces
