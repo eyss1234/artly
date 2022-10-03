@@ -14,7 +14,7 @@
 - Create booking by adding dates to form 
 - Art owner receives the booking details and art renter can view and edit bookings
 
-## API
+## Tools
 - Mapbox
 - Cloudinary
 
