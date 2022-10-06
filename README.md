@@ -2,9 +2,9 @@
 ## What this app does
   Artly, an app hosted on heroku at https://artly.herokuapp.com/, is a site for renting art
   
-  Discover a exclusive selection of art. Book and display at your place of choice. Sort art by categories, prices and availabity
+  Discover an exclusive selection of art. Book and display at your place of choice. Sort art by categories, prices and availability
   
-  As an art owner you can add pieces of art to rent. View and manage your collection of art works
+  As an art owner, you can add pieces of art to rent. View and manage your collection of art works
   
   As an art renter, manage all your existing bookings and view your past bookings
   
@@ -24,7 +24,6 @@
 ## Technology Stack
 - Ruby on Rails
 - Ruby
-- AJAX
 - Javascript
 - Bootstrap
 - Stimulus
